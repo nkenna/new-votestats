@@ -8,11 +8,40 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <ion-slides pager>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-slide style="background-color: green">
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+    <ion-card>
+      <img src="/assets/imgs/vote1.jpg"/>
+      <div class="card-title">Create Elections</div>
+      <div class="card-subtitle">Secure, Cloud-based Elections</div>
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide style="background-color: blue">
+    <ion-card>
+      <img src="/assets/imgs/vote1.jpg"/>
+      <div class="card-title">Mobile Ready</div>
+      <div class="card-subtitle">Elections are optimized for desktop and mobile devices</div>
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide style="background-color: red">
+    <ion-card>
+      <img src="/assets/imgs/vote1.jpg"/>
+      <div class="card-title">Email Ballots</div>
+      <div class="card-subtitle">Provide an optional email address for your voters 
+        and we'll notify them when your election launches</div>
+    </ion-card>
+  </ion-slide>
+
+</ion-slides>
+
+<button ion-button color="danger" full (click)="adminLogin(event)">Create an Election</button>
+<button ion-button color="danger" full (click)="searchElection(event)">Search for an Election and vote</button>
+<button ion-button color="danger" full (click)="adminSignup(event)">sign Up</button>
+<button ion-button color="danger" full (click)="adminLogin(event)">sign In</button>
+<button ion-button color="danger" full (click)="voterLogin(event)">Voter sign In</button>
+
+  </ion-content>

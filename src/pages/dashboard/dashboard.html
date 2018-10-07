@@ -1,0 +1,41 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>dashboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <button ion-button color="danger" full (click)="createElection(event)">Create Election</button>
+
+    <div *ngIf="selectedElection" padding>
+        <b>{{selectedElection.title}}</b>
+        <b>{{selectedElection.status}}</b>
+        <button ion-button color="danger" full (click)="addPosition(event, selectedElection)">Add/Edit Election positions/Candidates </button>
+        <button ion-button color="danger" full (click)="addVoterPage(event)">Add Voters</button>
+        <button ion-button color="danger" full (click)="viewResults(event)">View Election Details</button>
+
+      </div>
+    
+    <ion-label >
+        Your Elections
+      </ion-label>
+
+      <ion-list>
+          <button ion-item *ngFor="let election of elections" (click)="electionTapped($event, election)">
+            {{election.title}}
+            <div class="item-note" item-end>
+              {{election.note}}
+            </div>
+          </button>
+        </ion-list>
+
+</ion-content>

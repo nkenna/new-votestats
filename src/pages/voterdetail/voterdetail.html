@@ -1,0 +1,31 @@
+<!--
+  Generated template for the VoterdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>voterdetail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>You can vote in this elections</h3>
+
+    <ion-list>
+      <ion-item *ngFor="let election of elections">
+        <h2 item-start>{{election.title}}</h2>
+        <ion-buttons item-end>
+          <button ion-button (click)="openVote(election)">Vote</button>
+          <button ion-button (click)="details(election)">Details</button>
+        </ion-buttons>
+      </ion-item>
+     
+      </ion-list>
+
+</ion-content>

@@ -1,0 +1,44 @@
+<!--
+  Generated template for the OpenvotePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>openvote</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-label>Election Title:</ion-label>
+    <h2>{{election.title}}</h2>
+
+    <ion-label>Election Status:</ion-label>
+    <h2>{{election.status}}</h2>
+
+    <ion-label>Voter ID:</ion-label>
+    <h2>{{voter.votername}}</h2>
+
+  
+
+  <h2>Select Candidate</h2>
+
+  <ion-item>
+      <ion-label>Candidate</ion-label>
+      <ion-select [(ngModel)]="candidate">
+        <ion-option *ngFor="let electiondataCandidate of electiondataCandidates">{{electiondataCandidate._id}}</ion-option>
+      </ion-select>
+    </ion-item>
+<div *ngIf="!voter.voted" >
+    <button ion-button block (click)="vote(candidate, election._id, voter)">Vote</button>
+</div>
+   
+    
+    <button ion-button block (click)="closeModal()">Close Modal</button>
+
+</ion-content>

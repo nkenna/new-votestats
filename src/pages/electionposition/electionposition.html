@@ -1,0 +1,63 @@
+<!--
+  Generated template for the ElectionpositionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>electionposition</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label stacked>Position Title</ion-label>
+        <ion-input [(ngModel)]="positiontitle"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Position Discription</ion-label>
+        <ion-input [(ngModel)]="positiondisc"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Ballot Type</ion-label>
+        
+        <ion-select [(ngModel)]="ballottype">
+          
+          <ion-option value="MC">Multiple Choice - Voters can select one or many options</ion-option>
+          <ion-option value="IRV">Ranked Choice (IRV) - Voters will rank options according preferences</ion-option>
+      
+    </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Add Candidates for this Position</ion-label>
+        <ion-input [(ngModel)]="candidate"></ion-input>
+    </ion-item>
+
+
+    
+
+      <button ion-button color="danger" full (click)="addCandidate(event)">Add Candidate</button>
+      <button ion-button color="danger" full (click)="save(event)">Save Position</button>
+      {{candidates.candidate}}
+
+      <h4>Your Candidates will appear here:</h4>
+    <ion-list>
+        <div ion-item *ngFor="let candidate of Candidates">
+                      {{candidate.candidate}}
+                      {{candidate}}
+        </div>
+        <div ion-item *ngFor="let candidate of Candidates">
+           
+            {{candidate}}
+</div>
+      </ion-list>
+
+</ion-content>

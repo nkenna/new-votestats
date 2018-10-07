@@ -1,0 +1,75 @@
+<!--
+  Generated template for the ElectionboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>electionboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item >
+      <button ion-button item-start (click)="start()">
+          Start Election
+        </button>
+
+        <button ion-button item-start (click)="end()">
+            End Election
+          </button>
+
+        <button ion-button item-end (click)="delete()">
+            Delete Election
+          </button>
+  </ion-item>
+
+  <div stacked>
+    <h4>Election Title: </h4><h4>{{election.title}}</h4>
+  </div>
+
+  <div stacked>
+      <h4>Election Status: </h4><h4>{{_election}}</h4>
+    </div>
+
+    <div stacked>
+        <h4>Election start: </h4><h4>{{election.startdate}}</h4>
+      </div>
+
+      <div stacked>
+          <h4>Election end: </h4><h4>{{election.enddate}}</h4>
+        </div>
+
+        <div stacked>
+            <h4>Candidates: </h4>
+          </div>
+      
+          <ion-list >
+              <ion-item *ngFor="let candidate of candidates">
+                
+                  <h3 item-start>{{candidate.title}}</h3>
+                  <h3 item-start>{{candidate.positiontitle}}</h3>
+                  <h3 item-end>{{candidate.votes}}</h3>
+              </ion-item>
+            </ion-list>
+         
+
+        <div stacked>
+            <h4>Positions: </h4>
+        </div>
+
+        <ion-list >
+          <ion-item *ngFor="let position of positions">
+              <h3 item-start>{{position.positiontitle}}</h3>
+          </ion-item>
+        </ion-list>
+
+        
+
+   
+
+</ion-content>
