@@ -24,8 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupproviderProvider } from '../providers/signupprovider/signupprovider';
 import { IonicStorageModule } from '@ionic/storage'
 
+import { MomentPipe} from '../pipes/moment/moment';
+
 @NgModule({
   declarations: [
+    MomentPipe,
     MyApp,
     HomePage,
     ListPage,

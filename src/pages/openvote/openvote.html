@@ -31,7 +31,7 @@
   <ion-item>
       <ion-label>Candidate</ion-label>
       <ion-select [(ngModel)]="candidate">
-        <ion-option *ngFor="let electiondataCandidate of electiondataCandidates">{{electiondataCandidate._id}}</ion-option>
+        <ion-option *ngFor="let candidate of candidates" [value]="candidate">{{candidate.title}}</ion-option>
       </ion-select>
     </ion-item>
 <div *ngIf="!voter.voted" >

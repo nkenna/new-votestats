@@ -37,8 +37,15 @@
     </div>
 
     <div stacked>
-        <h4>Election start: </h4><h4>{{election.startdate}}</h4>
+        <h4>Election start: </h4><h4>{{election.startdate | moment:'YYYY-MM-DD HH:mm'}}</h4>
       </div>
+
+      <ion-item>
+          <h4 item-start>Start: </h4>
+          <h4 item-starts>{{election.startdate}}</h4>
+          <h4 item-ends>starts</h4>
+          
+      </ion-item>
 
       <div stacked>
           <h4>Election end: </h4><h4>{{election.enddate}}</h4>

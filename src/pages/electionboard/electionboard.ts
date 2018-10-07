@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { LoadingController, ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import * as moment from 'moment';
 /**
  * Generated class for the ElectionboardPage page.
  *
@@ -30,6 +31,8 @@ export class ElectionboardPage {
     this.getElectionPositions();
     this.getElectionCandidates();
 
+    console.log(this.timediffnow());
+
     setInterval(()=>{
       this.getElectionPositions();
     this.getElectionCandidates();
@@ -38,6 +41,30 @@ export class ElectionboardPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ElectionboardPage');
+  }
+
+ 
+  
+
+  timediffnow(){
+    var now = moment();
+    var dateS = this.election.startdate;
+    var dateE = this.election.enddate;
+    var timeS = moment(dateS);
+    var timeE = moment(dateE);
+    
+
+    return  timeS.diff(now, 'hours');
+  }
+
+  timediffele(){
+    var now = moment();
+    var dateS = this.election.startdate;
+    var dateE = this.election.enddate;
+    var timeS = moment(dateS);
+    var timeE = moment(dateE);
+
+    return timeE.diff(timeS);
   }
 
   async start(){

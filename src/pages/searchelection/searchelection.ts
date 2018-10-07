@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs/Observable';
+import { LoadingController, ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the SearchelectionPage page.
@@ -25,7 +26,7 @@ export class SearchelectionPage {
   icons: string[];
   //elections: Array<{title: string, note: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
     //this.elections = [];
   }
 
@@ -37,12 +38,20 @@ export class SearchelectionPage {
     
 
   async initializeElections() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+    loading.present();
+
     var re =  await this.http.get('http://localhost:3000/allelections')
     .subscribe((data: any) => {
         this.elections = data.elections;
     },
     (error: any) => {
       console.dir(error)
+    },()=>{
+      loading.dismiss();
     });
     
   
