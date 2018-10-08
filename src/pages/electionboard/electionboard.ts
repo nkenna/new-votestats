@@ -23,6 +23,8 @@ export class ElectionboardPage {
   candidates: Array<any>;
   _election: any;
   status: any;
+  startDiff: any;
+  endDiff: any;
 
   
 
@@ -34,6 +36,9 @@ export class ElectionboardPage {
     console.log(this.timediffnow());
 
     setInterval(()=>{
+      var now = moment();
+      this.startDiff = moment(this.election.startdate).diff(now, 'hours');
+      this.endDiff = moment(this.election.enddate).diff(moment(this.election.startdate), 'hours');
       this.getElectionPositions();
     this.getElectionCandidates();
     }, 5000)
