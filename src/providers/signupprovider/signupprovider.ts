@@ -22,7 +22,7 @@ export class SignupproviderProvider {
     console.log(email)
     console.log(password)
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/signup',
+      this.http.post('https://servervote.herokuapp.com/signup',
       { 
         firstname: firstname,
         lastname: lastname,

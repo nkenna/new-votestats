@@ -33,7 +33,7 @@ export class ElectionboardPage {
     this.getElectionPositions();
     this.getElectionCandidates();
 
-    console.log(this.timediffnow());
+   
 
     setInterval(()=>{
       var now = moment();
@@ -51,27 +51,6 @@ export class ElectionboardPage {
  
   
 
-  timediffnow(){
-    var now = moment();
-    var dateS = this.election.startdate;
-    var dateE = this.election.enddate;
-    var timeS = moment(dateS);
-    var timeE = moment(dateE);
-    
-
-    return  timeS.diff(now, 'hours');
-  }
-
-  timediffele(){
-    var now = moment();
-    var dateS = this.election.startdate;
-    var dateE = this.election.enddate;
-    var timeS = moment(dateS);
-    var timeE = moment(dateE);
-
-    return timeE.diff(timeS);
-  }
-
   async start(){
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
@@ -79,7 +58,7 @@ export class ElectionboardPage {
   
     loading.present();
 
-     await this.http.get('http://localhost:3000/start/?eid=' + this.election._id )
+     await this.http.get('https://servervote.herokuapp.com/start/?eid=' + this.election._id )
     .subscribe((data: any) => {
         this._election = data.election['status'];
         this.status = data.status;
@@ -104,7 +83,7 @@ export class ElectionboardPage {
   
     loading.present();
 
-     await this.http.get('http://localhost:3000/end/?eid=' + this.election._id )
+     await this.http.get('https://servervote.herokuapp.com/end/?eid=' + this.election._id )
     .subscribe((data: any) => {
         this._election = data.election['status'];
         this.status = data.status;
@@ -130,7 +109,7 @@ export class ElectionboardPage {
   
     loading.present();
 
-     await this.http.get('http://localhost:3000/delete/?eid=' + this.election._id )
+     await this.http.get('https://servervote.herokuapp.com/delete/?eid=' + this.election._id )
     .subscribe((data: any) => {
         this.status = data.status;
       
@@ -150,7 +129,7 @@ export class ElectionboardPage {
   }
 
   async getElectionPositions() {
-   return await this.http.get('http://localhost:3000/positionelection/?eid=' + this.election._id )
+   return await this.http.get('https://servervote.herokuapp.com/positionelection/?eid=' + this.election._id )
     .subscribe((data: any) => {
         this.positions = data.data;
        // console.log(data.data)
@@ -169,7 +148,7 @@ export class ElectionboardPage {
   }
 
    getElectionCandidates() {
-    return this.http.get('http://localhost:3000/candelection/?eid=' + this.election._id)
+    return this.http.get('https://servervote.herokuapp.com/candelection/?eid=' + this.election._id)
      .subscribe((data: any) => {
          this.candidates = data.data;
          console.log(this.candidates)

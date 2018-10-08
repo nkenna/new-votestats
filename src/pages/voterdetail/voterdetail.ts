@@ -43,7 +43,7 @@ export class VoterdetailPage {
   }
 
   async retrieveVoterDetails(){
-    return await this.http.get('http://localhost:3000/electionforvote/?voterID=' + this.voter._id )
+    return await this.http.get('https://servervote.herokuapp.com/electionforvote/?voterID=' + this.voter._id )
     .subscribe((data: any) => {
       this.elections = data.elections
     },

@@ -44,7 +44,7 @@ export class SearchelectionPage {
   
     loading.present();
 
-    var re =  await this.http.get('http://localhost:3000/allelections')
+    var re =  await this.http.get('https://servervote.herokuapp.com/allelections')
     .subscribe((data: any) => {
         this.elections = data.elections;
     },

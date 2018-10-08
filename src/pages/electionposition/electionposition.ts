@@ -57,7 +57,7 @@ export class ElectionpositionPage {
     console.log(this.data)
 
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/addposition',
+      this.http.post('https://servervote.herokuapp.com/addposition',
       { 
         electionID: this.election._id,
         positionTitle: this.positiontitle,

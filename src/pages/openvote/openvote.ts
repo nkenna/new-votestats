@@ -48,7 +48,7 @@ export class OpenvotePage {
     });
   
     loading.present();
-    return await this.http.get('http://localhost:3000/electiondetails/?electionID=' + this.election._id )
+    return await this.http.get('https://servervote.herokuapp.com/electiondetails/?electionID=' + this.election._id )
     .subscribe((data: any) => {
       this.election = data.election;
       this.electiondataPositions = data.positions;
@@ -78,7 +78,7 @@ export class OpenvotePage {
       headers: { 'Content-Type': 'application/json' }
     } 
 
-    return await this.http.post('http://localhost:3000/vote', options, headers)
+    return await this.http.post('https://servervote.herokuapp.com/vote', options, headers)
     .subscribe((data: any) =>{
       this.status = data.status;
     },

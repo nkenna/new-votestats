@@ -35,7 +35,7 @@ export class VoterloginPage {
     } 
        // Use the HttpClient post method to create a new record
        this.http
-       .post('http://localhost:3000/voterlogin', options, headers)
+       .post('https://servervote.herokuapp.com/voterlogin', options, headers)
        .subscribe((data : any) =>
        {
          

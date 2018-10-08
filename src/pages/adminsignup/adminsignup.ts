@@ -32,7 +32,7 @@ export class AdminsignupPage {
   }
 
   signUp(){
-    this.http.post('http://localhost:3000/signup',
+    this.http.post('https://servervote.herokuapp.com/signup',
     { 
       firstname: this.firstname,
       lastname: this.lastname,

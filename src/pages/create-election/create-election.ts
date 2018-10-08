@@ -34,7 +34,7 @@ export class CreateElectionPage {
 
   save(){
     new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/addelection',
+      this.http.post('https://servervote.herokuapp.com/addelection',
       { 
         title: this.title,
         disc: this.disc,

@@ -20,6 +20,7 @@ export class AddvoterPage {
 
   voterID: any;
   voterKey: any;
+  email: any;
   election: any;
   user: any;
   status: any;
@@ -47,13 +48,13 @@ export class AddvoterPage {
   
     loading.present();
 
-    let options: any = {voterid: this.voterID, voterkey: this.voterKey, electionid: this.election._id};
+    let options: any = {voterid: this.voterID, voterkey: this.voterKey, email: this.email, electionid: this.election._id};
     let headers: any		 = {
       headers: { 'Content-Type': 'application/json' }
     } 
        // Use the HttpClient post method to create a new record
        this.http
-       .post('http://localhost:3000/addvoters', options, headers)
+       .post('https://servervote.herokuapp.com/addvoters', options, headers)
        .subscribe((data : any) =>
        {
           // If the request was successful clear the form of data
